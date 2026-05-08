@@ -8,7 +8,7 @@ if ($db_url_env) {
     $dbname = ltrim($url['path'], '/');
     $user = $url['user'];
     $pass = $url['pass'];
-    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;sslmode=require";
 } else {
     // Fallback für lokale Entwicklung
     $dsn = "pgsql:host=localhost;port=5432;dbname=buchverfolgung";
@@ -19,8 +19,7 @@ if ($db_url_env) {
 try {
     $pdo = new PDO($dsn, $user, $pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::PGSQL_ATTR_SSL_MODE => 'require'
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
 } catch (PDOException $e) {
     die("Datenbankverbindungsfehler: " . $e->getMessage());
