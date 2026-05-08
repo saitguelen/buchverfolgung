@@ -19,7 +19,8 @@ if ($db_url_env) {
 try {
     $pdo = new PDO($dsn, $user, $pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::PGSQL_ATTR_SSL_MODE => 'require'
     ]);
 } catch (PDOException $e) {
     die("Datenbankverbindungsfehler: " . $e->getMessage());
