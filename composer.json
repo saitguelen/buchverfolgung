@@ -1,0 +1,8 @@
+{
+    "name": "buchclub/verfolgung",
+    "description": "Wöchentliche Zielverfolgung für einen Buchclub",
+    "type": "project",
+    "require": {
+        "php": ">=8.2"
+    }
+}
