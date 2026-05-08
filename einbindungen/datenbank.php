@@ -1,13 +1,13 @@
 <?php
 // Datenbankverbindung herstellen und Tabellen initialisieren
-$db_url = getenv('DATABASE_URL');
-if ($db_url) {
-    $db_url = parse_url($db_url);
-    $host = $db_url['host'];
-    $port = $db_url['port'] ?? 5432;
-    $user = $db_url['user'];
-    $pass = $db_url['pass'];
-    $dbname = ltrim($db_url['path'], '/');
+$db_url_env = $_ENV['DATABASE_URL'] ?? getenv('DATABASE_URL') ?? null;
+if ($db_url_env) {
+    $url = parse_url($db_url_env);
+    $host = $url['host'];
+    $port = $url['port'] ?? 5432;
+    $dbname = ltrim($url['path'], '/');
+    $user = $url['user'];
+    $pass = $url['pass'];
     $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
 } else {
     // Fallback für lokale Entwicklung
