@@ -41,6 +41,10 @@ Eine wöchentliche Zielverfolgungs-Webanwendung für Buchclubs. Komplett in Vani
 - Das System unterstützt Deutsch (`de`), Türkisch (`tr`) und Englisch (`en`).
 - Die Sprache kann auf jeder Seite jederzeit über die Flaggen-Buttons oben rechts gewechselt werden und wird in der Session gespeichert.
 
+### 6. Lokale Entwicklung
+- htdocs
+- xampp
+- git
 ---
 
 ## 🛠️ Technologie-Stack
